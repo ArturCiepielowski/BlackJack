@@ -12,7 +12,6 @@ myScore = 0
 for x in my_cards:
     myScore = myScore + x
 
-
 comp_cards.append(cards[random.randint(0, 12)])
 comp_cards.append(cards[random.randint(0, 12)])
 compScore = 0
@@ -20,12 +19,7 @@ for y in comp_cards:
     compScore = compScore + y
 
 
-Game = input("Do you want to play a game of Blackjack? Type 'y' or 'n': ")
-
-if Game == "y":
-    print(f"Your cards :{my_cards},   current score: {myScore}")
-    print(f"Computer first card : {comp_cards[0]}")
-
+def firstWinCondition():
     if compScore == 21 and myScore < 21:
         print("The Computer is the winner")
     elif myScore == 21 and compScore < 21:
@@ -33,17 +27,45 @@ if Game == "y":
     elif compScore == 21 and myScore == 21:
         print("The Computer is the winner")
 
-    loop = True
 
-    while loop:
-        gameContinue = input(" Type 'y' to get another card, type'n' to pass: ")
+def winCondition():
+    if compScore == 21 and myScore < 21:
+        print("The Computer is the winner")
+    elif myScore == 21 and compScore < 21:
+        print("The Player is the winner")
+    elif compScore == 21 and myScore == 21:
+        print("The Computer is the winner")
+    elif compScore > myScore:
+        print("The Computer is the winner")
+    elif myScore > compScore:
+        print("The Player is the winner")
 
-        if gameContinue == "y":
-            my_cards.append(cards[random.randint(0, 12)])
-            myScore = 0
-            for x in my_cards:
-                myScore = myScore + x
-            print(f"Your cards :{my_cards},   current score: {myScore}")
-            print(f"Computer first card : {comp_cards[0]}")
-        elif gameContinue == "n":
-            loop = False
+
+blackJack = True
+while blackJack:
+
+    Game = input("Do you want to play a game of Blackjack? Type 'y' or 'n': ")
+
+    if Game == "y":
+        print(f"Your cards :{my_cards},   current score: {myScore}")
+        print(f"Computer first card : {comp_cards[0]}")
+
+        firstWinCondition()
+
+        loop = True
+
+        while loop:
+            gameContinue = input(" Type 'y' to get another card, type'n' to pass: ")
+
+            if gameContinue == "y":
+                my_cards.append(cards[random.randint(0, 12)])
+                myScore = 0
+                for x in my_cards:
+                    myScore = myScore + x
+                print(f"Your cards :{my_cards},   current score: {myScore}")
+                print(f"Computer first card : {comp_cards[0]}")
+            elif gameContinue == "n":
+                loop = False
+            winCondition()
+    elif Game == "n":
+        blackJack = False
