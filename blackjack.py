@@ -51,46 +51,62 @@ def firstWinCondition():
             f"The Computer is the winner. \n Computer score: {compScore} \n Player score: {myScore}"
         )
         blackJack = False
+       
+        
     elif myScore == 21 and compScore < 21:
         print(
             f"The Player is the winner. \n Computer score: {compScore} \n Player score: {myScore}"
         )
         blackJack = False
+     
+        
     elif compScore == 21 and myScore == 21:
         print(
             f"The Computer is the winner. \n Computer score: {compScore} \n Player score: {myScore}"
         )
         blackJack = False
+        
+        
 
 
 def winCondition():
+    
     global blackJack
-
     if compScore == 21 and myScore < 21:
         print(
             f"The Computer is the winner. \n Computer score: {compScore} \n Player score: {myScore}"
         )
         blackJack = False
+        
+        
     elif myScore == 21 and compScore < 21:
         print(
             f"The Player is the winner. \n Computer score: {compScore} \n Player score: {myScore}"
         )
         blackJack = False
+        
+        
     elif compScore == 21 and myScore == 21:
         print(
             f"The Computer is the winner. \n Computer score: {compScore} \n Player score: {myScore}"
         )
         blackJack = False
+        
+
     elif compScore > myScore:
         print(
             f"The Computer is the winner. \n Computer score: {compScore} \n Player score: {myScore}"
         )
         blackJack = False
+       
+        
     elif myScore > compScore:
         print(
             f"The Player is the winner. \n Computer score: {compScore} \n Player score: {myScore}"
         )
         blackJack = False
+        
+        
 
 
 def looseCondition():
@@ -142,7 +158,6 @@ while blackJack:
                 elif gameContinue == "n":
                     loop = False
                     winCondition()
-                    my_cards = []
-                    comp_cards = []
+                    
     elif game == "n":
         blackJack = False
