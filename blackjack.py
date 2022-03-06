@@ -23,8 +23,12 @@ for y in comp_cards:
 
 def cardShuffle():
 
-    my_cards = []
-    comp_cards = []
+    my_cards.clear()
+    comp_cards.clear()
+    global myScore
+    myScore = 0
+    global compScore
+    compScore = 0
 
     my_cards.append(cards[random.randint(0, 12)])
     my_cards.append(cards[random.randint(0, 12)])
@@ -40,6 +44,8 @@ def cardShuffle():
 
 
 def firstWinCondition():
+    global blackJack
+    
     if compScore == 21 and myScore < 21:
         print(
             f"The Computer is the winner. \n Computer score: {compScore} \n Player score: {myScore}"
@@ -58,6 +64,8 @@ def firstWinCondition():
 
 
 def winCondition():
+    global blackJack
+
     if compScore == 21 and myScore < 21:
         print(
             f"The Computer is the winner. \n Computer score: {compScore} \n Player score: {myScore}"
@@ -91,6 +99,7 @@ def looseCondition():
         print(
             f"The Player lost. \n Computer score: {compScore} \n Player score: {myScore}"
         )
+        cardShuffle()
 
         loop = False
     elif compScore > 21:
@@ -98,9 +107,10 @@ def looseCondition():
             f"The Computer lost. \n Computer score: {compScore} \n Player score: {myScore}"
         )
         loop = False
+        cardShuffle()
 
 
-cardShuffle()
+
 
 blackJack = True
 while blackJack:
