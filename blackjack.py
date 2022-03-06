@@ -3,10 +3,22 @@ from tkinter import Y
 
 cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 
-myScore = 0
-compScore = 0
+
 my_cards = []
 comp_cards = []
+
+
+my_cards.append(cards[random.randint(0, 12)])
+my_cards.append(cards[random.randint(0, 12)])
+myScore = 0
+for x in my_cards:
+    myScore = myScore + x
+
+comp_cards.append(cards[random.randint(0, 12)])
+comp_cards.append(cards[random.randint(0, 12)])
+compScore = 0
+for y in comp_cards:
+    compScore = compScore + y
 
 
 def cardShuffle():
@@ -78,13 +90,16 @@ def looseCondition():
         print(
             f"The Player lost. \n Computer score: {compScore} \n Player score: {myScore}"
         )
+        loop = False
     elif compScore > 21:
         print(
             f"The Computer lost. \n Computer score: {compScore} \n Player score: {myScore}"
         )
+        loop = False
 
 
 cardShuffle()
+
 blackJack = True
 while blackJack:
 
