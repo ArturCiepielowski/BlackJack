@@ -1,5 +1,5 @@
 import random
-from tkinter import Y
+
 
 cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 
@@ -87,9 +87,11 @@ def winCondition():
 
 def looseCondition():
     if myScore > 21:
+        global loop
         print(
             f"The Player lost. \n Computer score: {compScore} \n Player score: {myScore}"
         )
+
         loop = False
     elif compScore > 21:
         print(
@@ -103,14 +105,15 @@ cardShuffle()
 blackJack = True
 while blackJack:
 
-    Game = input("Do you want to play a game of Blackjack? Type 'y' or 'n': ")
+    game = input("Do you want to play a game of Blackjack? Type 'y' or 'n': ")
 
-    if Game == "y":
+    if game == "y":
         print(f"Your cards :{my_cards},   current score: {myScore}")
         print(f"Computer first card : {comp_cards[0]}")
 
         firstWinCondition()
 
+        global loop
         loop = True
 
         if blackJack == True:
@@ -131,5 +134,5 @@ while blackJack:
                     winCondition()
                     my_cards = []
                     comp_cards = []
-    elif Game == "n":
+    elif game == "n":
         blackJack = False
