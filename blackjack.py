@@ -105,6 +105,12 @@ def winCondition():
             f"The Player is the winner. \n Computer score: {compScore} \n Player score: {myScore}"
         )
         blackJack = False
+
+    elif myScore == compScore:
+        print(
+             f"The Computer is the winner. \n Computer score: {compScore} \n Player score: {myScore}"
+        )
+        blackJack = False    
         
         
 def asCondition():
@@ -118,6 +124,8 @@ def asCondition():
 
 
 def myAsReplacement():
+    
+    print("Exchanging 11 for 1")
     number =my_cards.index(As)
     my_cards[number]=1
     myScore = 0
@@ -185,7 +193,7 @@ while blackJack:
                     print(f"Your cards :{my_cards},   current score: {myScore}")
                     print(f"Computer first card : {comp_cards[0]}")
                     asCondition()
-                    winCondition()    
+                      
                 elif gameContinue == "n":
                     loop = False
                     winCondition()
