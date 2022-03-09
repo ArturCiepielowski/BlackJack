@@ -108,7 +108,7 @@ def winCondition():
         
         
 def asCondition():
-    if myScore>21 and As in cards:
+    if myScore>21 and As in my_cards:
         asReplacement()
     else:
         looseCondition()    
