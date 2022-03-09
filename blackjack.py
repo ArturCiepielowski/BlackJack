@@ -2,7 +2,7 @@ import random
 
 
 cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
-
+As = 11
 
 my_cards = []
 comp_cards = []
@@ -111,6 +111,17 @@ def winCondition():
 
 def looseCondition():
     if myScore > 21:
+        if As in cards:
+            
+
+            number =cards.index(As)
+            cards[number]=1
+            myScore = 0
+            for x in my_cards:
+                myScore = myScore + x
+            print(myScore)    
+
+
         global loop
         print(
             f"The Player lost. \n Computer score: {compScore} \n Player score: {myScore}"
@@ -126,6 +137,7 @@ def looseCondition():
         cardShuffle()
 
 
+    
 
 
 blackJack = True
