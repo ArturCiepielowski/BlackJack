@@ -109,19 +109,31 @@ def winCondition():
         
 def asCondition():
     if myScore>21 and As in my_cards:
-        asReplacement()
+        myAsReplacement()
+    elif compScore>21 and As in comp_cards:
+        compAsReplacement()    
     else:
         looseCondition()    
         
 
 
-def asReplacement():
-    number =cards.index(As)
-    cards[number]=1
+def myAsReplacement():
+    number =my_cards.index(As)
+    my_cards[number]=1
     myScore = 0
     for x in my_cards:
         myScore = myScore + x
-        print(myScore)    
+    print(f"Your cards :{my_cards},   current score: {myScore}")
+    print(f"Computer first card : {comp_cards[0]}")    
+          
+
+def compAsReplacement():
+    number =comp_cards.index(As)
+    comp_cards[number]=1
+    compScore = 0
+    for x in my_cards:
+        compScore = compScore + x
+                  
 
 
 def looseCondition():
@@ -169,9 +181,11 @@ while blackJack:
                     myScore = 0
                     for x in my_cards:
                         myScore = myScore + x
+                    
                     print(f"Your cards :{my_cards},   current score: {myScore}")
                     print(f"Computer first card : {comp_cards[0]}")
                     asCondition()
+                    winCondition()    
                 elif gameContinue == "n":
                     loop = False
                     winCondition()
